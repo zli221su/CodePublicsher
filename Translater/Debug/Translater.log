@@ -1,0 +1,6 @@
+﻿  Translater.cpp
+  .NETFramework,Version=v4.0.AssemblyAttributes.cpp
+  Translater.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
+FileSystem.lib(FileSystem.obj) : warning LNK4075: ignoring '/EDITANDCONTINUE' due to '/INCREMENTAL:NO' specification
+Sockets.lib(Sockets.obj) : warning LNK4099: PDB 'Sockets.pdb' was not found with 'Sockets.lib(Sockets.obj)' or at 'F:\CSE687OOD\Project4\Project4\CodePublisher\Debug\Sockets.pdb'; linking object as if no debug info
+  Translater.vcxproj -> F:\CSE687OOD\Project4\Project4\CodePublisher\Debug\Translater.dll

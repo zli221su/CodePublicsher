@@ -1,0 +1,132 @@
+﻿<!--
+////////////////////////////////////////////////////////////////////////
+// MainWindow.xaml - Provide methods to support MainWindow.xaml       //
+// ver 1.0                                                            //
+// Zhi Li, CSE687 - Object Oriented Design, Spring 2019               //
+////////////////////////////////////////////////////////////////////////
+/*
+ * Package Operations:
+ * MainWindow.xaml provides GUI that allow users to choose settings to convert
+ * c++ files.
+ *
+ * Required Files:
+ * MainWindow.xaml.cs        // Implement GUI methods.
+ * Shim.h, Shim.cpp          // Translation between C# and C++ codes.
+ *
+ * Maintenance History:
+ * ver 1.0 : 9 Apr 2019
+ * - first release
+ *
+*/-->
+<Window x:Class="Project3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Project3"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="1000" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TabControl Name="TabControl1" Grid.ColumnSpan="3" Margin="0,18,0.2,-0.2" Grid.RowSpan="3">
+            <TabItem Header="_Navigation">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto"/>
+                    </Grid.ColumnDefinitions>
+                    <!--row 0-->
+                    <Label Grid.Row="0" Grid.Column="0" Content="Search Path:"/>
+                    <TextBlock Name="txtPath" Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3" Margin="5"/>
+                    <!--<Button Name="btnBrowsePath" Grid.Row="0" Grid.Column="2" Margin="4"
+                                    Content="Browse" Width="70" Click="BtnBrowsePath_Click"/>-->
+
+                    <CheckBox Name="cbRecurse" Grid.Row="0" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Right" IsChecked="True" Checked="CbRecurse_Checked" Unchecked="CbRecurse_Unchecked"/>
+                    <Label Grid.Row="0" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Sub-Dirs"/>
+
+                    <!--row 1-->
+                    <!--<Label Grid.Row="1" Grid.Column="0" Content="OutputPath:"/>-->
+                    <!--<TextBlock Name="txtOutputPath" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="3" Margin="5"/>-->
+                    <!--<Button Name="btnBrowseOutput" Grid.Row="1" Grid.Column="2" Margin="4"
+                                    Content="Browse" Width="70" Click="BtnBrowseOutput_Click"/>-->
+
+                    <CheckBox Name="cbComment" Grid.Row="1" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Right" IsChecked="True" Checked="CbComment_Checked" Unchecked="CbComment_Unchecked"/>
+                    <Label Grid.Row="1" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Comment Analysis"/>
+
+                    <!--row 2-->
+                    <Label Grid.Row="2" Grid.Column="0" Content="Pattens:"/>
+                    <TextBox Name="txtPatterns" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" TextChanged="TxtPatterns_TextChanged"/>
+
+                    <CheckBox Name="cbDependency" Grid.Row="2" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Right" IsChecked="True" Checked="CbDependency_Checked" Unchecked="CbDependency_Unchecked"/>
+                    <Label Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Dependency Analysis"/>
+
+                    <!--row 3-->
+                    <Label Grid.Row="3" Grid.Column="0" Content="Regexex:"/>
+                    <TextBox Name="txtRegexes" Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Margin="5" TextChanged="TxtRegexes_TextChanged"/>
+
+                    <CheckBox Name="cbScope" Grid.Row="3" Grid.Column="7" VerticalAlignment="Center" HorizontalAlignment="Right" IsChecked="True" Checked="CbScope_Checked" Unchecked="CbScope_Unchecked"/>
+                    <Label Grid.Row="3" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right" Content="Scope Analysis"/>
+
+                    <!--row 4-->
+                    <Label Grid.Row="4" Grid.ColumnSpan="5" Content="Directories in Current Search Path:"/>
+                    <Label Grid.Row="4" Grid.Column="4" Content="Files in Current Folder:"/>
+                    <!--<Separator Grid.Row="2" Grid.ColumnSpan="7"/>-->
+
+                    <!--row 5-->
+                    <ListBox Name="lstDirs" Grid.Row="5" Grid.ColumnSpan="3" Margin="5" MouseDoubleClick="LstDirs_MouseDoubleClick"/>
+                    <ListBox Name="lstFiles" Grid.Row="5" Grid.Column="4" Grid.ColumnSpan="4" Margin="5"/>
+
+                    <!--row 6-->
+                    <Button Name="btnPublish" Grid.Row="6" Grid.RowSpan="2" Grid.ColumnSpan="8"
+                                    Content="Publish" Click="BtnPublish_Click" FontSize="25"/>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Converted Files">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <!--row 0-->
+                    <CheckBox Name="openMethod" IsChecked="false" VerticalAlignment="Center" Checked="OpenMethod_Checked" Unchecked="OpenMethod_Unchecked"/>
+                    <Label Name="openWithBrowser" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="left" Content="Open Source Code (Open in pop-up window.)"/>
+
+                    <!--row 1-->
+                        <ListBox x:Name="lstConvertedFiles" Grid.Row="1" Grid.ColumnSpan="2" Margin="0,0,-0.8,-0.2" MouseDoubleClick="LstConvertedFiles_MouseDoubleClick"/>
+
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        <StatusBar Grid.Row="3">
+            <TextBlock Name="statusBarText" Text="StatusBar" FontSize="25"/>
+        </StatusBar>
+    </Grid>
+</Window>

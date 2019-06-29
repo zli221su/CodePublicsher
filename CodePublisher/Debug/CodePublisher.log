@@ -1,0 +1,35 @@
+﻿  AbstrSynTree.cpp
+  ConfigureCodeAnalysers.cpp
+  CommentAnalyser.cpp
+  Converter.cpp
+  Cpp11-BlockingQueue.cpp
+  CppAnalyser.cpp
+  DependencyAnalyser.cpp
+  DirExplorerN.cpp
+  FileMgr.cpp
+  FileSearch.cpp
+  FileSystem.cpp
+  GrammarHelpers.cpp
+  Logger.cpp
+  ParserHelper.cpp
+  ActionsAndRules.cpp
+  ConfigureParser.cpp
+  Parser.cpp
+  Process.cpp
+  ScopeAnalyser.cpp
+  ScopeTable.cpp
+  Generating Code...
+  Compiling...
+  ScopeStack.cpp
+  Semi.cpp
+  SpecialCharacterAnalyser.cpp
+  Toker.cpp
+  CodeUtilities.cpp
+  StringUtilities.cpp
+  Utilities.cpp
+  CodePublisher.cpp
+  Generating Code...
+StringUtilities.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+CodeUtilities.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+Cpp11-BlockingQueue.obj : warning LNK4221: This object file does not define any previously undefined public symbols, so it will not be used by any link operation that consumes this library
+  CodePublisher.vcxproj -> F:\CSE687OOD\Project4\Project4\CodePublisher\Debug\CodePublisher.lib
